@@ -1,0 +1,2 @@
+## Attention
+Please note that this project does not include the Upside Engine as a bundled package. To use the Upside Engine, you must install it separately. You can access the detailed instructions by [clicking here](https://notreux.github.io/UpsideEngine/tutorials/get-started/Installation.html). If you encounter any difficulties or have questions during the installation, please ask in the [community](https://discord.com/invite/pE3svUvmnu). 
