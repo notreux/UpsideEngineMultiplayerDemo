@@ -47,6 +47,5 @@ local myPluginScene = sceneManager:Get("MyScene")
 myPluginScene:Enable()
 
 -- Alternatively, create and enable a new scene programmatically.
-pluginSupportService:LoadPluginContent()
 local newScene = upsideEngine.new("Scene")
-newScene:Enable()
+newScene:SetName("MyNewScene")
