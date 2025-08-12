@@ -43,7 +43,7 @@ end)
 
 -- Load scenes from the plugin if they were created using it.
 pluginSupportService:LoadPluginContent()
-local myPluginScene = sceneManager:Get("MyScene")
+local myPluginScene = sceneManager:FindByName("MyScene")
 myPluginScene:Enable()
 
 -- Alternatively, create and enable a new scene programmatically.
