@@ -1,3 +1,4 @@
+local players = game:GetService("Players")
 local replicatedStorage = game:WaitForChild("ReplicatedStorage")
 local packages = replicatedStorage:WaitForChild("packages")
 local modules = script.Parent:WaitForChild("modules")
@@ -9,7 +10,12 @@ local sceneManager = upsideEngine.GetService("SceneManager")
 
 -- Load global modules that are used across multiple scenes.
 local globalModules = setup.getModulesByPath(modules:WaitForChild("globals"))
+local playerGui = players.LocalPlayer:WaitForChild("PlayerGui")
 local activeScene = nil
+
+local sceneContainer = Instance.new("ScreenGui")
+sceneContainer.Name = "SceneContainer"
+sceneContainer.Parent = playerGui
 
 -- Unload modules from the current scene.
 local function unloadModules(scene)
@@ -37,7 +43,11 @@ end
 sceneManager:On("SceneLoaded", function(scene)
 	if activeScene then
 		unloadModules(activeScene)
+		activeScene.Parent = nil
 	end
+
+	activeScene = scene
+	scene.Parent = sceneContainer
 	loadModules(scene)
 end)
 
