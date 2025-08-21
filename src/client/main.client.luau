@@ -43,7 +43,7 @@ end
 sceneManager:On("SceneLoaded", function(scene)
 	if activeScene then
 		unloadModules(activeScene)
-		scene:Disable()
+		activeScene:Disable()
 		activeScene.Parent = nil
 	end
 
