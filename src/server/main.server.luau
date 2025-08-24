@@ -1,6 +1,6 @@
 local replicatedStorage = game:WaitForChild("ReplicatedStorage")
-local modules = script.Parent:WaitForChild("modules")
 local setup = require(replicatedStorage.shared.util.setup)
+local modules = setup.getModulesByPath(script.Parent:WaitForChild("modules"))
 
 -- Unload all modules when required.
 local function unloadModules()
@@ -13,10 +13,8 @@ local function loadModules()
 	setup.run(modules, "start")
 end
 
--- Load modules when the game has finished loading.
-game.Loaded:Connect(function()
-	loadModules()
-end)
+-- Load modules
+loadModules()
 
 -- Ensure that modules are unloaded properly when the game is closing.
 game:BindToClose(function()

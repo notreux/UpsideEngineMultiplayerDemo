@@ -3,28 +3,28 @@ local exports = {}
 --[[
     Retrieves all ModuleScripts from a given path and requires them.
     Returns a table mapping module names to the required module. 
-]] 
+]]
 function exports.getModulesByPath(path)
-    local modules = {}
-    for _, module in ipairs(path:GetChildren()) do
-        if module:IsA("ModuleScript") then
-            modules[module.Name] = require(module)
-        end
-    end
+	local modules = {}
+	for _, module in path:GetChildren() do
+		if module:IsA("ModuleScript") then
+			modules[module.Name] = require(module)
+		end
+	end
 
-    return modules
+	return modules
 end
 
 --[[
     Iterates over a table of modules and calls the specified method on each,
     passing any additional arguments provided.
-]] 
+]]
 function exports.run(modules, methodName, ...)
-    for _, module in pairs(modules) do
-        if module[methodName] then
-            module[methodName](...)
-        end
-    end
+	for _, module in modules do
+		if module[methodName] then
+			module[methodName](...)
+		end
+	end
 end
 
 return exports
