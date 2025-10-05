@@ -16,7 +16,7 @@ Follow the instructions below to get started.
 2. **Navigate to the project folder**
 
    ```cmd
-   cd SpaceFighter
+   cd UpsideEngineMultiplayerDemo
    ```
 
 3. **Install dependencies** using [Wally](https://wally.run/)
