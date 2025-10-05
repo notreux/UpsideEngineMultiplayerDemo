@@ -1,4 +1,6 @@
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local replicatedStorage = game:WaitForChild("ReplicatedStorage")
+local UpsideEngine = require(ReplicatedStorage.Packages.UpsideEngine)
 local setup = require(replicatedStorage.shared.util.setup)
 local modules = setup.getModulesByPath(script.Parent:WaitForChild("modules"))
 
@@ -14,6 +16,8 @@ local function loadModules()
 end
 
 -- Load modules
+local pluginSupportService = UpsideEngine.GetService("PluginSupportService")
+pluginSupportService:LoadPluginContent()
 loadModules()
 
 -- Ensure that modules are unloaded properly when the game is closing.
